@@ -25,27 +25,35 @@ graph TD
     Cloud["云端 MQTT 服务器"]
     LocalBroker["本地 Mosquitto Broker"]
     App["手机 App"]
+    Screen["中控屏"]
     HA["Home Assistant"]
     Gateway["485 网关 (物理设备)"]
     Router["路由器 (DNS劫持)"]
 
-    subgraph "局域网 (Local Network)"
-        Router -- DNS劫持 --> LocalBroker
-        Gateway -- MQTT连接 --> LocalBroker
-        HA -- 插件直连 --> LocalBroker
-        App -- MQTT连接 --> LocalBroker
+    subgraph "互联网 (Internet)"
+        App -- MQTT连接 --> Cloud
+        Screen -- MQTT连接 --> Cloud
     end
 
-    LocalBroker -- "双向桥接 (Bridge)" --> Cloud
+    subgraph "局域网 (Local Network)"
+        Router -- "DNS劫持 (仅劫持网关域名)" --> LocalBroker
+        Gateway -- "MQTT连接 (被重定向)" --> LocalBroker
+        HA -- "插件直连" --> LocalBroker
+    end
+
+    LocalBroker -- "双向桥接 (Bridge)" <--> Cloud
     
     style LocalBroker fill:#f9f,stroke:#333,stroke-width:2px
     style Router fill:#bbf,stroke:#333,stroke-width:1px
     style Gateway fill:#bfb,stroke:#333,stroke-width:1px
+    style Cloud fill:#eef,stroke:#333,stroke-width:2px
 ```
 
-1.  **DNS 劫持**: 在路由器层面对云端 MQTT 域名进行 DNS 劫持，将流量重定向到本地局域网的 MQTT Broker。
-2.  **本地 MQTT 桥接**: 本地 MQTT Broker 配置为双向桥接 (Bridge) 模式，作为中转站连接真实的云端服务器。
-3.  **插件接入**: Home Assistant 插件连接本地 MQTT Broker，直接发送控制指令并接收状态上报。
+1.  **DNS 劫持**: 仅需在路由器层面对 **485 网关** 访问的云端域名进行 DNS 劫持，将其流量重定向到本地 MQTT Broker。手机 App 和中控屏继续连接云端。
+2.  **本地 MQTT 桥接**: 本地 MQTT Broker 配置为双向桥接 (Bridge) 模式。
+    *   **下行控制**: App/中控屏 -> 云端 -> (桥接) -> 本地 Broker -> 485 网关。
+    *   **上行状态**: 485 网关 -> 本地 Broker -> HA (本地极速响应) & -> (桥接) -> 云端 -> App/中控屏。
+3.  **插件接入**: Home Assistant 插件连接本地 MQTT Broker，直接发送控制指令并接收状态上报，实现毫秒级响应。
 
 ## 📦 安装方法
 
