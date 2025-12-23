@@ -1,0 +1,10 @@
+# 服务说明用于让HA加载服务描述，不影响实际运行
+process_temperature_binding:
+  name: 处理温度传感器绑定
+  description: 扫描并为同房间地暖绑定空调温度传感器
+get_binding_status:
+  name: 获取温度传感器绑定状态
+  description: 打印当前绑定摘要到日志
+debug_entities:
+  name: 调试实体信息
+  description: 打印所有相关实体存在性到日志

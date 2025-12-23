@@ -1,0 +1,36 @@
+{
+  "config": {
+    "step": {
+      "har_upload": {
+        "title": "上传HAR抓包文件",
+        "description": "上传从花语前湾APP抓取的HAR文件\n\n{instructions}",
+        "data": {
+          "har_content": "HAR文件内容"
+        }
+      },
+      "room_mapping": {
+        "title": "配置房间映射",
+        "description": "为每个房间指定对应的Home Assistant区域：\n\n{room_list}\n\n{instructions}",
+        "data": {}
+      },
+      "confirm_har": {
+        "title": "确认配置信息",
+        "description": "请确认配置信息：\n\n家庭名称：{home_name}\n家庭地址：{home_address}\n设备序列号：{device_sn}\n设备数量：{device_count}\n房间映射数量：{room_mapping_count}\n\n房间映射：\n{room_mapping}"
+      },
+    },
+    "error": {
+      "har_content": "HAR文件解析失败，请检查文件格式"
+    },
+    "abort": {
+      "already_configured": "该设备已经配置过了"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "花语前湾转接器选项",
+        "description": "配置花语前湾转接器集成选项"
+      }
+    }
+  }
+}

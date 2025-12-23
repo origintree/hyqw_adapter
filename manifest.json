@@ -1,0 +1,12 @@
+{
+  "domain": "hyqw_adapter",
+  "name": "花语前湾转接器",
+  "version": "1.0.0",
+  "documentation": "https://github.com/origintree/hyqw_adapter",
+  "issue_tracker": "https://github.com/origintree/hyqw_adapter/issues",
+  "dependencies": [],
+  "codeowners": ["@origintree"],
+  "requirements": ["paho-mqtt>=1.6.0", "pyyaml>=6.0"],
+  "config_flow": true,
+  "iot_class": "cloud_polling"
+}
