@@ -157,6 +157,18 @@ sequenceDiagram
 
 欢迎提交 [Issue](https://github.com/origintree/hyqw_adapter/issues) 或 Pull Request。
 
+## 📄 版权与许可
+
+Copyright © 2024 @origintree. All Rights Reserved.
+
+本项目采用 **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)** 协议进行许可。
+
+*   ✅ **署名**：您必须给出适当的署名，提供指向本许可协议的链接，同时表明是否（对原始作品）作了修改。
+*   ❌ **非商业性使用**：您不得将本素材用于商业目的。
+*   ❌ **禁止演绎**：如果您再混合、转换或者基于该素材创作，您不得分发修改后的素材。
+
+> ⚠️ **特别声明**：本插件仅供小区业主个人学习交流及家庭自动化使用，严禁任何形式的商业用途（包括但不限于打包销售、集成于商业中控系统等）。如需引用本项目代码或思路，请务必标注来源。
+
 ## ⚠️ 免责声明
 
 本插件为第三方开源项目，仅供学习交流和个人使用。使用本插件产生的任何风险由用户自行承担。
