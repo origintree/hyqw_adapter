@@ -22,12 +22,12 @@ Home Assistant 集成，用于接入和控制**花语前湾**小区的智能家�
 
 ```mermaid
 graph TD
-    Cloud[云端 MQTT 服务器]
-    LocalBroker[本地 Mosquitto Broker]
-    App[手机 App]
-    HA[Home Assistant]
-    Gateway[485 网关 (物理设备)]
-    Router[路由器 (DNS劫持)]
+    Cloud["云端 MQTT 服务器"]
+    LocalBroker["本地 Mosquitto Broker"]
+    App["手机 App"]
+    HA["Home Assistant"]
+    Gateway["485 网关 (物理设备)"]
+    Router["路由器 (DNS劫持)"]
 
     subgraph "局域网 (Local Network)"
         Router -- DNS劫持 --> LocalBroker
